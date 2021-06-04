@@ -2,6 +2,8 @@ const express = require("express");
 const cors = require("cors");
 const path = require("path");
 
+const sequelize = require("./config/connection");
+
 const PORT = process.env.PORT || 3000;
 
 const app = express();
@@ -13,6 +15,7 @@ app.use(express.static(path.join(__dirname, "../", "public")));
 
 const init = async () => {
   try {
+    await sequelize.sync();
     app.listen(PORT, () =>
       console.log(`Server running on http://localhost:${PORT}`)
     );
