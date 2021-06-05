@@ -8,7 +8,7 @@ const {
   createPost,
   updatePost,
   deletePost,
-} = require("../../controllers/api");
+} = require("../../controllers/api/blog-posts");
 
 // The `/api/users` endpoint
 
