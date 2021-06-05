@@ -2,7 +2,13 @@ const { Router } = require("express");
 
 const router = Router();
 
-//require handler functions
+const {
+  getAllPosts,
+  getPost,
+  createPost,
+  updatePost,
+  deletePost,
+} = require("../../controllers/api");
 
 // The `/api/users` endpoint
 
