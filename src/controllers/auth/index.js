@@ -1,12 +1,6 @@
 const { User } = require("../../models");
 
 const login = async (req, res) => {
-  //  post body
-  // {
-  //   email: "george.brown@email.com",
-  //   password: "password456";
-  // }
-
   try {
     const { email, password } = req.body;
 
