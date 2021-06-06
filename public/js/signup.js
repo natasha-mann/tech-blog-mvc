@@ -28,7 +28,10 @@ const onClick = async (event) => {
     username: $("#username").val(),
     password: $("#password").val(),
   };
-  await signup(userDetails);
+  const response = await signup(userDetails);
+  if (response.success) {
+    window.location.assign("/");
+  }
 };
 
 $("#sign-up-btn").click(onClick);
