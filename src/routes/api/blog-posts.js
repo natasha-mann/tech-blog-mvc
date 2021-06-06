@@ -2,6 +2,7 @@ const { Router } = require("express");
 
 const router = Router();
 
+const auth = require("../../middlewares/auth");
 const {
   getAllPosts,
   getPost,
@@ -16,10 +17,10 @@ router.get("/", getAllPosts);
 
 router.get("/:id", getPost);
 
-router.post("/", createPost);
+router.post("/", auth, createPost);
 
-router.put("/:id", updatePost);
+router.put("/:id", auth, updatePost);
 
-router.delete("/:id", deletePost);
+router.delete("/:id", auth, deletePost);
 
 module.exports = router;
