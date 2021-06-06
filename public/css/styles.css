@@ -1,9 +1,11 @@
-#login-btn {
+#login-btn,
+#sign-up-btn {
   background-color: #ff9d8e;
   border: #ff9d8e;
 }
 
-#login-btn:hover {
+#login-btn:hover,
+#sign-up-btn:hover {
   background-color: #e9998d;
 }
 
