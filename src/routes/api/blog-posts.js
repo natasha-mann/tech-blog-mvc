@@ -11,8 +11,6 @@ const {
   deletePost,
 } = require("../../controllers/api/blog-posts");
 
-// The `/api/users` endpoint
-
 router.get("/", getAllPosts);
 
 router.get("/:id", getPost);
