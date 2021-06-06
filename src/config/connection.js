@@ -1,4 +1,5 @@
 require("dotenv").config();
+
 const sequelize = require("sequelize");
 
 const dbOptions = {
