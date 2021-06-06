@@ -24,8 +24,7 @@ const login = async (req, res) => {
     console.error(error.message);
   }
 };
-const logout = (req, res) => {
-  res.send("logout");
-};
+
+const logout = (req, res) => {};
 
 module.exports = { login, logout };
