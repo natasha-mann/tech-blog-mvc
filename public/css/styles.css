@@ -6,3 +6,17 @@
 #login-btn:hover {
   background-color: #e9998d;
 }
+
+#nav-link:hover {
+  color: #3b1c32;
+  font-weight: bolder;
+}
+
+#sign-up-link {
+  text-decoration: none;
+  color: #e9998d;
+}
+#sign-up-link:hover {
+  text-decoration: underline;
+  font-weight: bolder;
+}
