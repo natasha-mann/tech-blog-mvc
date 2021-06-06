@@ -1,9 +1,14 @@
 const { Model, DataTypes } = require("sequelize");
+const bcrypt = require("bcrypt");
 
 const hooks = require("../hooks");
 const sequelize = require("../config/connection");
 
-class User extends Model {}
+class User extends Model {
+  async isCorrectPassword(password) {
+    return bcrypt.compare(password, this.password);
+  }
+}
 
 const schema = {
   id: {
