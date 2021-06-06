@@ -30,15 +30,11 @@ const schema = {
     allowNull: false,
     validate: {
       isEmail: true,
-      unique: true,
     },
   },
   username: {
     type: DataTypes.STRING,
     allowNull: false,
-    validate: {
-      unique: true,
-    },
   },
   password: {
     type: DataTypes.STRING,

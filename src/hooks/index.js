@@ -12,4 +12,9 @@ const beforeBulkCreate = async (users) => {
   });
 };
 
-module.exports = { beforeBulkCreate };
+const beforeCreate = async (user) => {
+  const hashedPassword = await bcrypt.hash(user.password, 10);
+  return hashedPassword;
+};
+
+module.exports = { beforeBulkCreate, beforeCreate };
