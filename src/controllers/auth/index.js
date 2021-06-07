@@ -31,10 +31,10 @@ const login = async (req, res) => {
 const logout = (req, res) => {
   if (req.session.isLoggedIn) {
     req.session.destroy(() => {
-      return res.redirect("/");
+      return res.status(200).json({ success: "Logout successful" });
     });
   } else {
-    return res.end();
+    return res.status(500).json({ error: "Failed to logout" });
   }
 };
 
@@ -56,6 +56,7 @@ const signup = async (req, res) => {
       username,
       password,
     });
+
     res.status(200).json({ success: "user created" });
   } catch (error) {
     console.log(`[ERROR]: ${error.message}`);

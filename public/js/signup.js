@@ -1,32 +1,49 @@
-const signup = async (userDetails) => {
-  const options = {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json",
-    },
-    redirect: "follow",
-    body: JSON.stringify(userDetails),
-  };
+const onSubmit = async (event) => {
+  event.preventDefault();
 
-  const response = await fetch("/auth/signup", options);
+  const first_name = $("#firstName").val();
+  const last_name = $("#lastName").val();
+  const email = $("#email").val();
+  const username = $("#username").val();
+  const password = $("#password").val();
+  const confirm_password = $("#confirmPassword").val();
 
-  if (response.status !== 200) {
-    console.error("Signup unsuccessful");
-  } else {
-    window.location.href = "/dashboard";
+  if (
+    !first_name ||
+    !last_name ||
+    !email ||
+    !username ||
+    !password ||
+    !confirm_password
+  ) {
+    console.log("Please complete all fields!");
+    return;
+  }
+
+  if (password === confirm_password) {
+    const options = {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      redirect: "follow",
+      body: JSON.stringify({
+        first_name,
+        last_name,
+        email,
+        username,
+        password,
+      }),
+    };
+
+    const response = await fetch("/auth/signup", options);
+
+    if (response.status !== 200) {
+      console.error("Signup unsuccessful");
+    } else {
+      window.location.href = "/login";
+    }
   }
 };
 
-const onClick = async (event) => {
-  event.preventDefault();
-  const userDetails = {
-    first_name: $("#firstName").val(),
-    last_name: $("#lastName").val(),
-    email: $("#email").val(),
-    username: $("#username").val(),
-    password: $("#password").val(),
-  };
-  const response = await signup(userDetails);
-};
-
-$("#sign-up-form").submit(onClick);
+$("#sign-up-form").submit(onSubmit);
