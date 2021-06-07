@@ -4,6 +4,7 @@ const login = async (userDetails) => {
     headers: {
       "Content-Type": "application/json",
     },
+    redirect: "follow",
     body: JSON.stringify(userDetails),
   };
 
