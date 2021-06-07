@@ -7,21 +7,24 @@ const login = async (req, res) => {
     const user = await User.findOne({ where: { email } });
 
     if (!user) {
-      return res.redirect("/login");
+      console.log("User does not exist");
+      return res.status(404).json({ error: "Failed to login" });
     }
 
     const validPassword = await user.isCorrectPassword(password);
 
     if (!validPassword) {
-      return res.redirect("/login");
+      console.log("Invalid password");
+      return res.status(404).json({ error: "Failed to login" });
     }
 
     req.session.save(() => {
       req.session.isLoggedIn = true;
-      return res.sendStatus(200);
+      return res.status(200).json({ success: "Login successful" });
     });
   } catch (error) {
     console.error(error.message);
+    return res.status(500).json({ error: "Failed to login" });
   }
 };
 
