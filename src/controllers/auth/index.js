@@ -25,6 +25,14 @@ const login = async (req, res) => {
   }
 };
 
-const logout = (req, res) => {};
+const logout = (req, res) => {
+  if (req.session.isLoggedIn) {
+    req.session.destroy(() => {
+      return res.redirect("/");
+    });
+  } else {
+    return res.end();
+  }
+};
 
 module.exports = { login, logout };
