@@ -9,9 +9,9 @@ const renderHome = async (req, res) => {
       const newPost = post.get({ plain: true });
       const newBody = newPost.body.split(".").slice(0, 3).join(".");
       newPost.body = `${newBody}.`;
+
       return newPost;
     });
-
     res.render("home", { posts });
   } catch (error) {
     console.log(error.message);
@@ -21,7 +21,9 @@ const renderHome = async (req, res) => {
 
 const renderLogin = (req, res) => {
   try {
-    res.render("login");
+    res.render("login", {
+      layout: "login",
+    });
   } catch (error) {
     console.log(error.message);
     res.status(500).json({ error: "Failed to render" });
@@ -30,7 +32,9 @@ const renderLogin = (req, res) => {
 
 const renderSignup = (req, res) => {
   try {
-    res.render("signup");
+    res.render("signup", {
+      layout: "signup",
+    });
   } catch (error) {
     console.log(error.message);
     res.status(500).json({ error: "Failed to render" });
