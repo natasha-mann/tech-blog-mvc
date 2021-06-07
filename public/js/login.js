@@ -1,8 +1,10 @@
 const fetchData = async (url, options) => {
   try {
-    const response = await fetch(url, options);
-    const data = await response.json();
-    return data;
+    return await fetch(url, options);
+    // console.log(response);
+    // const data = await response.json();
+    // console.log(data);
+    // return data;
   } catch (error) {
     console.log(error);
   }
@@ -16,7 +18,10 @@ const login = async (userDetails) => {
     },
     body: JSON.stringify(userDetails),
   });
-  return response;
+
+  if (response.ok) {
+    window.location.href = "/dashboard";
+  }
 };
 
 const onClick = async (event) => {

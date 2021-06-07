@@ -18,7 +18,7 @@ const login = async (req, res) => {
 
     req.session.save(() => {
       req.session.isLoggedIn = true;
-      return res.redirect("/dashboard");
+      return res.sendStatus(200);
     });
   } catch (error) {
     console.error(error.message);
