@@ -16,6 +16,28 @@ const renderHome = async (req, res) => {
   }
 };
 
+const renderPost = async (req, res) => {
+  try {
+    const { userId } = req.session;
+    const { id } = req.params;
+
+    // WHEN USING FINDONE WITHOUT MAP, SHORTENBODY HANDLER DOESNT WORK??
+
+    const postData = await Post.findAll({
+      where: { id },
+      include: [{ model: User }, { model: Comment }],
+    });
+    const posts = postData.map((post) => {
+      return post.get({ plain: true });
+    });
+
+    res.render("post", { userId, posts });
+  } catch (error) {
+    console.log(error.message);
+    res.status(500).json({ error: "Failed to render" });
+  }
+};
+
 const renderLogin = (req, res) => {
   try {
     res.render("login", {
@@ -38,4 +60,4 @@ const renderSignup = (req, res) => {
   }
 };
 
-module.exports = { renderHome, renderLogin, renderSignup };
+module.exports = { renderHome, renderPost, renderLogin, renderSignup };

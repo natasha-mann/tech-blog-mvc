@@ -1,0 +1,30 @@
+{{#if userId}}
+{{>private-navbar}}
+{{else}}
+{{>public-navbar}}
+{{/if}}
+
+
+{{#each posts}}
+<div class="container">
+<div class="card text-center mt-4">
+  <div class="card-header fw ">
+    {{title}}
+  </div>
+  <div class="card-body">
+  
+    <p class="card-text">{{body}}</p>
+    
+  </div>
+  <div class="card-footer text-muted">
+   Comments
+  </div>
+  <div class="card-body">
+  
+  {{#each posts.comments}}
+    <p class="card-text">{{message}}</p>
+  {{/each}}
+  </div>
+</div>
+</div>
+{{/each}}
