@@ -1,1 +1,19 @@
 {{> private-navbar}}
+
+<div class="container">
+<div class="card mt-3">
+  <div class="card-body text-center">
+    <h1>Welcome {{firstName}} {{lastName}}!</h1>
+  </div>
+</div>
+</div>
+
+
+{{#if posts}}
+{{#each posts}}
+{{>post-card}}
+{{/each}}
+{{else}}
+<h2>You haven't submitted any posts yet!</h2>
+{{/if}}
+
