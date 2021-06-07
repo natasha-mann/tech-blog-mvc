@@ -1,22 +1,20 @@
-const fetchData = async (url, options) => {
-  try {
-    const response = await fetch(url, options);
-    const data = await response.json();
-    return data;
-  } catch (error) {
-    console.log(error);
-  }
-};
-
 const signup = async (userDetails) => {
-  const response = await fetchData("/auth/signup", {
+  const options = {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
     },
+    redirect: "follow",
     body: JSON.stringify(userDetails),
-  });
-  return response;
+  };
+
+  const response = await fetch("/auth/signup", options);
+
+  if (response.status !== 200) {
+    console.error("Signup unsuccessful");
+  } else {
+    window.location.href = "/dashboard";
+  }
 };
 
 const onClick = async (event) => {
@@ -29,9 +27,6 @@ const onClick = async (event) => {
     password: $("#password").val(),
   };
   const response = await signup(userDetails);
-  if (response.success) {
-    window.location.assign("/");
-  }
 };
 
-$("#sign-up-btn").click(onClick);
+$("#sign-up-form").submit(onClick);
