@@ -9,7 +9,7 @@ const fetchData = async (url, options) => {
 };
 
 const signup = async (userDetails) => {
-  const response = await fetchData("/api/users", {
+  const response = await fetchData("/auth/signup", {
     method: "POST",
     headers: {
       "Content-Type": "application/json",

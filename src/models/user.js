@@ -31,6 +31,7 @@ const schema = {
     validate: {
       isEmail: true,
     },
+    unique: true,
   },
   username: {
     type: DataTypes.STRING,
