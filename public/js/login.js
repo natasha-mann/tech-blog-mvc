@@ -1,31 +1,24 @@
-const fetchData = async (url, options) => {
-  try {
-    return await fetch(url, options);
-    // console.log(response);
-    // const data = await response.json();
-    // console.log(data);
-    // return data;
-  } catch (error) {
-    console.log(error);
-  }
-};
-
 const login = async (userDetails) => {
-  const response = await fetchData("/auth/login", {
+  const options = {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
     },
     body: JSON.stringify(userDetails),
-  });
+  };
 
-  if (response.ok) {
+  const response = await fetch("/auth/login", options);
+
+  if (response.status !== 200) {
+    console.error("Failed login");
+  } else {
     window.location.href = "/dashboard";
   }
 };
 
-const onClick = async (event) => {
+const onSubmit = async (event) => {
   event.preventDefault();
+
   const userDetails = {
     email: $("#email").val(),
     password: $("#password").val(),
@@ -33,4 +26,4 @@ const onClick = async (event) => {
   await login(userDetails);
 };
 
-$("#login-btn").click(onClick);
+$("#login-form").submit(onSubmit);
