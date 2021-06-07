@@ -3,7 +3,7 @@
     <h5 class="card-header">{{title}}</h5>
     <div class="card-body">
       <p class="card-text">
-        {{body}}
+        {{shortenBody body}}
       </p>
       <a href="#" class="btn btn-primary">See More</a>
     </div>
@@ -11,7 +11,7 @@
       Posted by
       {{user.username}}
       on
-      {{createdAt}}
+      {{formatDate createdAt}}
     </div>
   </div>
 </div>

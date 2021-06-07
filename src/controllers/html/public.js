@@ -6,11 +6,7 @@ const renderHome = async (req, res) => {
       include: [{ model: User }, { model: Comment }],
     });
     const posts = postData.map((post) => {
-      const newPost = post.get({ plain: true });
-      const newBody = newPost.body.split(".").slice(0, 3).join(".");
-      newPost.body = `${newBody}.`;
-
-      return newPost;
+      return post.get({ plain: true });
     });
     res.render("home", { posts });
   } catch (error) {
