@@ -1,4 +1,9 @@
+{{#if userId}}
+{{>private-navbar}}
+{{else}}
 {{>public-navbar}}
+{{/if}}
+
 {{#each posts}}
 {{>post-card}}
 {{/each}}
