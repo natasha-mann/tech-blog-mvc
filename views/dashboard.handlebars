@@ -11,7 +11,27 @@
 
 {{#if posts}}
 {{#each posts}}
-{{>post-card}}
+<div class="container mt-5">
+  <div class="card my-3">
+    <div class="card-header card-top">
+      <h4>{{title}}</h4> 
+    </div>
+    
+    <div class="card-body">
+      <p class="card-text">
+        {{shortenBody body}}
+      </p>
+      <a href="/posts/{{id}}" class="btn btn-primary edit-btn">Edit</a>
+      <button type="submit" id="delete-btn" class="btn btn-primary delete-btn">Delete</button>
+    </div>
+    <div class="card-footer card-bottom text-muted">
+      Posted by
+      {{user.username}}
+      on
+      {{formatDate createdAt}}
+    </div>
+  </div>
+</div>
 {{/each}}
 {{else}}
 <h2>You haven't submitted any posts yet!</h2>

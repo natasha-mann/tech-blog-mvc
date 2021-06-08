@@ -1,7 +1,8 @@
 #login-btn,
 #sign-up-btn,
 .see-more-btn,
-#comment-btn {
+#comment-btn,
+.edit-btn {
   background-color: #ff9d8e;
   border: #ff9d8e;
 }
@@ -9,12 +10,21 @@
 #login-btn:hover,
 #sign-up-btn:hover,
 .see-more-btn:hover,
-#comment-btn:hover {
+#comment-btn:hover,
+.edit-btn:hover {
   background-color: #e9998d;
 }
 
-#logout-btn {
-  background-color: #3b1c32;
+#logout-btn,
+.delete-btn {
+  background-color: #5c1e4a;
+  color: white;
+  border: #5c1e4a;
+}
+
+#logout-btn:hover,
+.delete-btn:hover {
+  background-color: #55314b;
   color: white;
 }
 
