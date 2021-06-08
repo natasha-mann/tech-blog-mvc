@@ -17,7 +17,7 @@ const renderDashboard = async (req, res) => {
       return newPost;
     });
 
-    res.render("dashboard", {
+    return res.render("dashboard", {
       layout: "dashboard",
       firstName,
       lastName,
@@ -25,7 +25,7 @@ const renderDashboard = async (req, res) => {
     });
   } catch (error) {
     console.log(error.message);
-    res.status(500).json({ error: "Failed to render" });
+    return res.status(500).json({ error: "Failed to render" });
   }
 };
 

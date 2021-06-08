@@ -13,7 +13,7 @@ const login = async (userDetails) => {
   if (response.status !== 200) {
     console.error("Failed login");
   } else {
-    window.location.href = "/dashboard";
+    window.location.replace("/dashboard");
   }
 };
 
