@@ -74,8 +74,25 @@ const updatePost = (req, res) => {
   res.send("update post");
 };
 
-const deletePost = (req, res) => {
-  res.send("delete post");
+const deletePost = async (req, res) => {
+  try {
+    const { id } = req.params;
+
+    const data = await Post.destroy({
+      where: {
+        id,
+      },
+    });
+
+    if (!data) {
+      return res.status(404).json({ error: "Post does not exist" });
+    }
+
+    return res.status(200).json({ success: "Delete successful" });
+  } catch (err) {
+    console.error(err.message);
+    return res.status(500).json({ error: "Failed to delete post" });
+  }
 };
 
 module.exports = { getAllPosts, getPost, createPost, updatePost, deletePost };
