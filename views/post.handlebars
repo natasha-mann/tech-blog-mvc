@@ -6,8 +6,8 @@
 
 
 <div class="container">
-  <div class="card text-center mt-4">
-    <div class="card-header fw-bold card-top">
+  <div class="card text-center mt-4" >
+    <div class="card-header fw-bold fs-4 card-top">
     {{postObj.title}}
     </div>
     <div class="card-body">
@@ -18,9 +18,9 @@
     </div>
     <div class="card-body">
       {{#if isLoggedIn}}
-      <form id="comment-form">
+      <form name="comment-form" id="{{postObj.id}}">
         <div class="mb-3">
-          <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+          <textarea class="form-control" id="commentData" rows="3"></textarea>
         </div>
         <div>
           <button type="submit" class="btn btn-primary"  id="comment-btn">Add comment</button>
@@ -34,7 +34,7 @@
         </div>
       {{/if}}
     </div>
-    <div class="card-footer text-muted card-bottom">
+    <div class="card-footer fw-bold card-bottom">
       Comments
     </div>
     <div class="card-body">
