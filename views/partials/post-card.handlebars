@@ -1,13 +1,13 @@
 <div class="container mt-5">
   <div class="card my-3">
-    <h5 class="card-header">{{title}}</h5>
+    <h5 class="card-header card-top">{{title}}</h5>
     <div class="card-body">
       <p class="card-text">
         {{shortenBody body}}
       </p>
-      <a href="./{{id}}" class="btn btn-primary">See More</a>
+      <a href="./{{id}}" class="btn btn-primary see-more-btn">See More</a>
     </div>
-    <div class="card-footer text-muted">
+    <div class="card-footer card-bottom text-muted">
       Posted by
       {{user.username}}
       on

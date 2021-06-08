@@ -9,9 +9,9 @@ const {
   renderSignup,
 } = require("../../controllers/html/public");
 
-router.get("/", renderHome);
-router.get("/:id", renderPost);
 router.get("/login", renderLogin);
 router.get("/signup", renderSignup);
+router.get("/:id", renderPost);
+router.get("/", renderHome);
 
 module.exports = router;
