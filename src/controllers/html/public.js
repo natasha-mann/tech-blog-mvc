@@ -23,15 +23,16 @@ const renderPost = async (req, res) => {
 
     // WHEN USING FINDONE WITHOUT MAP, SHORTENBODY HANDLER DOESNT WORK??
 
-    const postData = await Post.findAll({
+    const postData = await Post.findOne({
       where: { id },
-      include: [{ model: User }, { model: Comment }],
-    });
-    const posts = postData.map((post) => {
-      return post.get({ plain: true });
+      include: [{ model: User }, { model: Comment, include: User }],
     });
 
-    res.render("post", { isLoggedIn, posts });
+    // console.log(postData);
+    const postObj = postData.get({ plain: true });
+
+    console.log(postObj);
+    res.render("post", { isLoggedIn, postObj });
   } catch (error) {
     console.log(error.message);
     res.status(500).json({ error: "Failed to render" });

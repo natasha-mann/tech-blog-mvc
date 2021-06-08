@@ -5,26 +5,43 @@
 {{/if}}
 
 
-{{#each posts}}
 <div class="container">
 <div class="card text-center mt-4">
-  <div class="card-header fw ">
-    {{title}}
+  <div class="card-header fw-bold card-top">
+    {{postObj.title}}
   </div>
   <div class="card-body">
   
-    <p class="card-text">{{body}}</p>
+    <p class="card-text">{{postObj.body}}</p>
     
   </div>
-  <div class="card-footer text-muted">
+  <div class="card-footer  fw-bold  card-bottom">
+   Leave a comment
+  </div>
+  <div class="card-body">
+   <div class="mb-3">
+ 
+  <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+</div>
+    <div>
+    <button type="submit" class="btn btn-primary"  id="comment-btn">Add comment</button>
+  </div>
+  </div>
+  <div class="card-footer text-muted card-bottom">
    Comments
   </div>
   <div class="card-body">
   
-  {{#each posts.comments}}
-    <p class="card-text">{{message}}</p>
+  <div class="list-group list-group-flush ">
+  {{#each postObj.comments}}
+  <div  class="list-group-item list-group-item" >
+    
+    <p class="mb-1">{{message}}</p>
+    <small>{{formatDate createdAt}}</small>
+  </div>
+  
   {{/each}}
+  </div>
   </div>
 </div>
 </div>
-{{/each}}

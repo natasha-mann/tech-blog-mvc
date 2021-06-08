@@ -1,13 +1,15 @@
 #login-btn,
 #sign-up-btn,
-.see-more-btn {
+.see-more-btn,
+#comment-btn {
   background-color: #ff9d8e;
   border: #ff9d8e;
 }
 
 #login-btn:hover,
 #sign-up-btn:hover,
-.see-more-btn:hover {
+.see-more-btn:hover,
+#comment-btn:hover {
   background-color: #e9998d;
 }
 
