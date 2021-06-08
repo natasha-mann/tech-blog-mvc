@@ -21,17 +21,13 @@ const renderPost = async (req, res) => {
     const { isLoggedIn } = req.session;
     const { id } = req.params;
 
-    // WHEN USING FINDONE WITHOUT MAP, SHORTENBODY HANDLER DOESNT WORK??
-
     const postData = await Post.findOne({
       where: { id },
       include: [{ model: User }, { model: Comment, include: User }],
     });
 
-    // console.log(postData);
     const postObj = postData.get({ plain: true });
 
-    console.log(postObj);
     res.render("post", { isLoggedIn, postObj });
   } catch (error) {
     console.log(error.message);
