@@ -23,6 +23,7 @@ const schema = {
       model: "user",
       key: "id",
     },
+    onDelete: "CASCADE",
   },
 
   post_id: {
@@ -32,6 +33,7 @@ const schema = {
       model: "post",
       key: "id",
     },
+    onDelete: "CASCADE",
   },
 };
 

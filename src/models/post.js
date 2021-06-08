@@ -26,6 +26,7 @@ const schema = {
       model: "user",
       key: "id",
     },
+    onDelete: "CASCADE",
   },
 };
 
