@@ -66,8 +66,32 @@ const getPost = async (req, res) => {
   }
 };
 
-const createPost = (req, res) => {
-  res.send("create post");
+const createPost = async (req, res) => {
+  try {
+    const { title, body } = req.body;
+    const { userId } = req.session;
+
+    if (!userId) {
+      return res.status(404).json({ error: "User is not logged in" });
+    }
+
+    if (!title || !body) {
+      return res.status(404).json({ error: "Unable to add a post" });
+    }
+
+    const newPost = await Post.create({
+      title,
+      body,
+      user_id: userId,
+    });
+
+    res.status(200).json({ success: "Post added successfully." });
+  } catch (error) {
+    console.log(`[ERROR]: ${error.message}`);
+    res.status(500).json({
+      error: "Failed to create a post",
+    });
+  }
 };
 
 const updatePost = (req, res) => {

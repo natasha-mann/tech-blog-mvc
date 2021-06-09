@@ -16,7 +16,7 @@
       <h5 class="py-2">There are no blog posts just yet.</h5>
      {{#if isLoggedIn}}
       <p class="card-text pt-3">Get started and submit your first post!</p>
-      <a class="btn btn-primary add-post-btn mt-3"><i class="fas fa-plus pe-3"></i>Create Post</a>
+      <a href="/dashboard/create"class="btn btn-primary add-post-btn mt-3"><i class="fas fa-plus pe-3"></i>Create Post</a>
       {{else}}
       <p class="card-text pt-3">Please <a class="comment-link" href="/login">login</a> or <a class="comment-link" href="/signup">signup</a> to get started and submit your first post!</p>
     </div>

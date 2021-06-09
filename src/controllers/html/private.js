@@ -29,4 +29,14 @@ const renderDashboard = async (req, res) => {
   }
 };
 
-module.exports = { renderDashboard };
+const renderCreatePost = (req, res) => {
+  try {
+    const { firstName } = req.session;
+    res.render("create-post", { layout: "dashboard", firstName });
+  } catch (error) {
+    console.log(error.message);
+    res.status(500).json({ error: "Failed to render" });
+  }
+};
+
+module.exports = { renderDashboard, renderCreatePost };
