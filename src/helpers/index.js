@@ -10,6 +10,6 @@ const shortenBody = (body) => {
 };
 
 module.exports = {
-  formatDate,
   shortenBody,
+  formatDate,
 };

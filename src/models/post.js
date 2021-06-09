@@ -1,4 +1,5 @@
 const { Model, DataTypes } = require("sequelize");
+const moment = require("moment");
 
 const sequelize = require("../config/connection");
 
@@ -27,6 +28,19 @@ const schema = {
       key: "id",
     },
     onDelete: "CASCADE",
+  },
+
+  createdAt: {
+    type: DataTypes.DATE,
+    get() {
+      return moment(this.getDataValue("createdAt")).format("DD/MM/YYYY HH:MM");
+    },
+  },
+  updatedAt: {
+    type: DataTypes.DATE,
+    get() {
+      return moment(this.getDataValue("updatedAt")).format("DD/MM/YYYY HH:MM");
+    },
   },
 };
 
