@@ -39,4 +39,24 @@ const renderCreatePost = (req, res) => {
   }
 };
 
-module.exports = { renderDashboard, renderCreatePost };
+const renderEditPost = async (req, res) => {
+  try {
+    const { firstName, userId } = req.session;
+    const { id } = req.params;
+
+    const data = await Post.findOne({ where: { id, user_id: userId } });
+
+    if (!data) {
+      return res.redirect("/dashboard");
+    }
+
+    const post = data.get({ plain: true });
+
+    res.render("edit-post", { layout: "dashboard", firstName, post });
+  } catch (error) {
+    console.log(error.message);
+    res.status(500).json({ error: "Failed to render" });
+  }
+};
+
+module.exports = { renderDashboard, renderCreatePost, renderEditPost };
