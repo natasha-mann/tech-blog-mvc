@@ -94,8 +94,35 @@ const createPost = async (req, res) => {
   }
 };
 
-const updatePost = (req, res) => {
-  res.send("update post");
+const updatePost = async (req, res) => {
+  try {
+    const { title, body } = req.body;
+    const { userId } = req.session;
+    const { id } = req.params;
+
+    const post = { title, body };
+
+    if (!userId) {
+      return res.status(404).json({ error: "User is not logged in" });
+    }
+
+    if (!title || !body) {
+      return res.status(404).json({ error: "Unable to update post" });
+    }
+
+    const [updatedPost] = await Post.update(post, { where: { id } });
+
+    if (!updatedPost) {
+      return res.status(404).json({ error: "Post does not exist" });
+    }
+
+    res.status(200).json({ success: "Post updated successfully." });
+  } catch (error) {
+    console.log(`[ERROR]: ${error.message}`);
+    res.status(500).json({
+      error: "Failed to create a post",
+    });
+  }
 };
 
 const deletePost = async (req, res) => {

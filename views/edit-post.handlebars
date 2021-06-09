@@ -6,14 +6,15 @@
          {{firstName}}, something you want to change?
         </div>
       </div>
-      <form class="card shadow p-3 mb-5 bg-body rounded" id="create-post-form">
+      <form class="card shadow p-3 mb-5 bg-body rounded" id="{{post.id}}" name="edit-post-form">
         <div class="mb-3">
           <input
             type="input"
             class="form-control"
             id="post-title"
-            placeholder="{{post.title}}"
+            value="{{post.title}}"
           />
+          
         </div>
 
         <div class="mb-3">
@@ -21,12 +22,11 @@
             class="form-control"
             id="post-body"
             rows="12"
-            placeholder="{{post.body}}"
-          ></textarea>
+          >{{post.body}}</textarea>
         </div>
 
         <div class="d-grid gap-2">
-          <button class="btn btn-primary add-post-btn" type="submit">
+          <button class="btn btn-primary edit-post-btn" type="submit">
             Submit
           </button>
         </div>

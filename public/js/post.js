@@ -17,6 +17,32 @@ const handleDelete = async (event) => {
   }
 };
 
+const handleEdit = async (event) => {
+  event.preventDefault();
+
+  const id = event.currentTarget.id;
+
+  const title = $("#post-title").val();
+  const body = $("#post-body").val();
+
+  const options = {
+    method: "PUT",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    redirect: "follow",
+    body: JSON.stringify({ title, body }),
+  };
+
+  const response = await fetch(`/api/posts/${id}`, options);
+
+  if (response.status !== 200) {
+    console.error("Failed to add post");
+  } else {
+    window.location.replace("/dashboard");
+  }
+};
+
 const handleCreate = async (event) => {
   event.preventDefault();
 
@@ -42,5 +68,5 @@ const handleCreate = async (event) => {
 };
 
 $("#create-post-form").submit(handleCreate);
-
+$('[name="edit-post-form"]').submit(handleEdit);
 $('[name="delete-btn"]').click(handleDelete);
