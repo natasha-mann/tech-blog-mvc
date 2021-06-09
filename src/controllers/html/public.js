@@ -27,7 +27,7 @@ const renderPost = async (req, res) => {
     });
 
     const postObj = postData.get({ plain: true });
-
+    console.log(postObj);
     const comments = postObj.comments;
 
     res.render("post", { isLoggedIn, postObj, comments });
