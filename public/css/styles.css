@@ -17,7 +17,8 @@
 
 #logout-btn,
 .delete-btn,
-.add-post-btn {
+.add-post-btn,
+.edit-post-btn {
   background-color: #5c1e4a;
   color: white;
   border: #5c1e4a;
@@ -25,7 +26,8 @@
 
 #logout-btn:hover,
 .delete-btn:hover,
-.add-post-btn:hover {
+.add-post-btn:hover,
+.edit-post-btn:hover {
   background-color: #834371;
   color: white;
 }
@@ -45,11 +47,11 @@
 }
 
 .card-top {
-  background-color: #b0d4ce;
+  background-color: #b0d4ce !important;
 }
 
 .card-bottom {
-  background-color: #e4f1ef;
+  background-color: #e4f1ef !important;
 }
 
 .comment-link {
