@@ -5,8 +5,8 @@ const formatDate = (date) => {
 };
 
 const shortenBody = (body) => {
-  const newBody = body.split(".").slice(0, 3).join(".");
-  return `${newBody}.`;
+  const newBody = body.split(" ").slice(0, 50).join(" ");
+  return `${newBody} ...`;
 };
 
 module.exports = {

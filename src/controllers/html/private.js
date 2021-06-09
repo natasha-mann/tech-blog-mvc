@@ -11,8 +11,6 @@ const renderDashboard = async (req, res) => {
 
     const posts = postData.map((post) => {
       const newPost = post.get({ plain: true });
-      const newBody = newPost.body.split(".").slice(0, 3).join(".");
-      newPost.body = `${newBody}.`;
 
       return newPost;
     });

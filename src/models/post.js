@@ -29,19 +29,6 @@ const schema = {
     },
     onDelete: "CASCADE",
   },
-
-  createdAt: {
-    type: DataTypes.DATE,
-    get() {
-      return moment(this.getDataValue("createdAt")).format("DD/MM/YYYY HH:MM");
-    },
-  },
-  updatedAt: {
-    type: DataTypes.DATE,
-    get() {
-      return moment(this.getDataValue("updatedAt")).format("DD/MM/YYYY HH:MM");
-    },
-  },
 };
 
 const options = {
