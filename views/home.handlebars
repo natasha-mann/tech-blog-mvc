@@ -10,12 +10,17 @@
 {{/each}}
 {{else}}
 <div class="container">
-<div class="card position-absolute top-50 start-50 translate-middle shadow p-3 mb-5 bg-body rounded">
-  <div class="card-body text-center p-5">
-  <h2 class="pb-2"> Welcome to our blog! </h2>
-  <h5 class="py-2">There are no blog posts just yet.</h5>
-  <p class="card-text pt-3">Please <a class="comment-link" href="/login">login</a> or <a class="comment-link" href="/signup">signup</a> to get started and submit your first post!</p>
+  <div class="card position-absolute top-50 start-50 translate-middle shadow p-3 mb-5 bg-body rounded">
+    <div class="card-body text-center p-5">
+      <h2 class="pb-2"> Welcome to our blog! </h2>
+      <h5 class="py-2">There are no blog posts just yet.</h5>
+     {{#if isLoggedIn}}
+      <p class="card-text pt-3">Get started and submit your first post!</p>
+      <a class="btn btn-primary add-post-btn mt-3"><i class="fas fa-plus pe-3"></i>Create Post</a>
+      {{else}}
+      <p class="card-text pt-3">Please <a class="comment-link" href="/login">login</a> or <a class="comment-link" href="/signup">signup</a> to get started and submit your first post!</p>
+    </div>
   </div>
 </div>
-</div>
+{{/if}}
 {{/if}}

@@ -16,20 +16,22 @@
 }
 
 #logout-btn,
-.delete-btn {
+.delete-btn,
+.add-post-btn {
   background-color: #5c1e4a;
   color: white;
   border: #5c1e4a;
 }
 
 #logout-btn:hover,
-.delete-btn:hover {
-  background-color: #55314b;
+.delete-btn:hover,
+.add-post-btn:hover {
+  background-color: #834371;
   color: white;
 }
 
 #nav-link:hover {
-  color: #3b1c32;
+  color: #834371;
   font-weight: bolder;
 }
 
