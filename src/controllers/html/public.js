@@ -28,7 +28,9 @@ const renderPost = async (req, res) => {
 
     const postObj = postData.get({ plain: true });
 
-    res.render("post", { isLoggedIn, postObj });
+    const comments = postObj.comments;
+
+    res.render("post", { isLoggedIn, postObj, comments });
   } catch (error) {
     console.log(error.message);
     res.status(500).json({ error: "Failed to render" });
