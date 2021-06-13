@@ -18,7 +18,8 @@ const renderHome = async (req, res) => {
 
 const renderPost = async (req, res) => {
   try {
-    const { isLoggedIn } = req.session;
+    const { isLoggedIn, username } = req.session;
+
     const { id } = req.params;
 
     const postData = await Post.findOne({
@@ -28,9 +29,7 @@ const renderPost = async (req, res) => {
 
     const postObj = postData.get({ plain: true });
 
-    const comments = postObj.comments;
-
-    res.render("post", { isLoggedIn, postObj, comments });
+    res.render("post", { isLoggedIn, username, postObj });
   } catch (error) {
     console.log(error.message);
     res.status(500).json({ error: "Failed to render" });

@@ -24,6 +24,7 @@ const login = async (req, res) => {
       req.session.firstName = user.first_name;
       req.session.lastName = user.last_name;
       req.session.userId = user.id;
+      req.session.username = user.username;
       return res.status(200).json({ success: "Login successful" });
     });
   } catch (error) {

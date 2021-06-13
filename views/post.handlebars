@@ -44,12 +44,20 @@
     </div>
     <div class="card-body">
       <div class="list-group list-group-flush ">
-        {{#each comments}}
+       
+        {{#each postObj.comments}}
         <div  class="list-group-item list-group-item" >
           <p class="mb-1">{{message}}</p>
           <div><small class="text-muted">-- {{user.username}}</small></div>
          <div><small class="text-muted"> {{formatDate createdAt}}</small></div>
-         
+        
+       {{#isUserComment ../username user.username}}
+         <div class="my-3">
+            <a href="/comment/edit/{{id}}" class="btn btn-primary edit-btn">Edit</a>
+            <button type="submit" name="delete-btn" id="{{id}}" class="btn btn-primary delete-btn">Delete</button>
+         </div>
+       {{/isUserComment}}
+
         </div>
         {{/each}}
       </div>
