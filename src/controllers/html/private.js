@@ -57,4 +57,29 @@ const renderEditPost = async (req, res) => {
   }
 };
 
-module.exports = { renderDashboard, renderCreatePost, renderEditPost };
+const renderEditComment = async (req, res) => {
+  try {
+    const { firstName, userId } = req.session;
+    const { id } = req.params;
+
+    const data = await Comment.findOne({ where: { id, user_id: userId } });
+    console.log(data);
+    if (!data) {
+      return res.redirect("/");
+    }
+
+    const comment = data.get({ plain: true });
+
+    res.render("edit-comment", { layout: "main", firstName, comment });
+  } catch (error) {
+    console.log(error.message);
+    res.status(500).json({ error: "Failed to render" });
+  }
+};
+
+module.exports = {
+  renderDashboard,
+  renderCreatePost,
+  renderEditPost,
+  renderEditComment,
+};

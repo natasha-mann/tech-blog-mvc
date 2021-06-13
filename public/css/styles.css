@@ -18,7 +18,8 @@
 #logout-btn,
 .delete-btn,
 .add-post-btn,
-.edit-post-btn {
+.edit-post-btn,
+.edit-comment-btn {
   background-color: #5c1e4a;
   color: white;
   border: #5c1e4a;
@@ -27,7 +28,8 @@
 #logout-btn:hover,
 .delete-btn:hover,
 .add-post-btn:hover,
-.edit-post-btn:hover {
+.edit-post-btn:hover,
+.edit-comment-btn:hover {
   background-color: #834371;
   color: white;
 }

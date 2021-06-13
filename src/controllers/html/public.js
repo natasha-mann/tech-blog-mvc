@@ -28,6 +28,7 @@ const renderPost = async (req, res) => {
     });
 
     const postObj = postData.get({ plain: true });
+    console.log(postObj);
 
     res.render("post", { isLoggedIn, username, postObj });
   } catch (error) {
