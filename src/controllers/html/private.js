@@ -63,7 +63,7 @@ const renderEditComment = async (req, res) => {
     const { id } = req.params;
 
     const data = await Comment.findOne({ where: { id, user_id: userId } });
-    console.log(data);
+
     if (!data) {
       return res.redirect("/");
     }
