@@ -56,4 +56,25 @@ const updateComment = async (req, res) => {
   }
 };
 
-module.exports = { createComment, updateComment };
+const deleteComment = async (req, res) => {
+  try {
+    const { id } = req.params;
+
+    const data = await Comment.destroy({
+      where: {
+        id,
+      },
+    });
+
+    if (!data) {
+      return res.status(404).json({ error: "Comment does not exist" });
+    }
+
+    return res.status(200).json({ success: "Delete successful" });
+  } catch (err) {
+    console.error(err.message);
+    return res.status(500).json({ error: "Failed to delete comment" });
+  }
+};
+
+module.exports = { createComment, updateComment, deleteComment };
