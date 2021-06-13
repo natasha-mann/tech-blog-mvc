@@ -9,7 +9,9 @@ const renderHome = async (req, res) => {
     const posts = postData.map((post) => {
       return post.get({ plain: true });
     });
-    res.render("home", { isLoggedIn, posts });
+    const sortedPosts = posts.reverse();
+
+    res.render("home", { isLoggedIn, sortedPosts });
   } catch (error) {
     console.log(error.message);
     res.status(500).json({ error: "Failed to render" });
