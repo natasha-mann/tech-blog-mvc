@@ -14,7 +14,7 @@
 
 ## Deployed App
 
-This app is currently deployed on Heroku. Please check it out [here](https://murmuring-lowlands-41879.herokuapp.com/)
+This app is currently deployed on Heroku. Please check it out [here](https://murmuring-lowlands-41879.herokuapp.com/).
 
 ## About the Project
 
@@ -32,11 +32,13 @@ This is a full stack app built with the following technologies:
 ### Key Features
 
 - User authentication and sessions
+- Session automatically expires after 10 minutes of inactivity
 - Password hashing in the database through the bcrypt package
-- Protected routes for logged in users
-- Unauthenticated users can view posts but cannot interact with them until they are logged in.
-- Authenticated users can create, edit and delete blog posts
-- Authenticated users can view blog posts by other users and add comments
+- Protected routes for logged in users (dashboard)
+- Unauthenticated users can view all posts on home page and read individual posts but cannot interact with them (leave comments) until they are logged in.
+- Authenticated users can create, edit and delete blog posts via the dashboard
+- Authenticated users can view blog posts by other users on the home page and add comments
+- Authenticated users can edit or delete comments they have written
 
 ## Getting Started
 
