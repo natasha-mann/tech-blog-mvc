@@ -1,5 +1,4 @@
 const moment = require("moment");
-const { options } = require("../models/comment");
 
 const formatDate = (date) => {
   return moment(date).format("DD/MM/YYYY - HH:mm");

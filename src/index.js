@@ -22,6 +22,8 @@ const sessionOptions = {
   store: new SequelizeStore({
     db: sequelize,
   }),
+  // session to expire after 10mins of inactivity
+  cookie: { maxAge: 600000 },
 };
 
 const handlebarsOptions = { helpers };
