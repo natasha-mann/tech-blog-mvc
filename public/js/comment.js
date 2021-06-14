@@ -71,5 +71,4 @@ const handleDeleteComment = async (event) => {
 
 $('[name="delete-btn"]').click(handleDeleteComment);
 $('[name="edit-comment-form"]').submit(handleEditComment);
-
 $('[name="comment-form"]').submit(handleComment);

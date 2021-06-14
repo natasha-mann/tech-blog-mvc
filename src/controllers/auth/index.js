@@ -62,6 +62,12 @@ const signup = async (req, res) => {
       password,
     });
 
+    if (!newUser) {
+      return res.status(404).json({
+        error: "Unable to create a user",
+      });
+    }
+
     res.status(200).json({ success: "user created" });
   } catch (error) {
     console.log(`[ERROR]: ${error.message}`);

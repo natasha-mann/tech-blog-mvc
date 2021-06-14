@@ -49,6 +49,10 @@ const createPost = async (req, res) => {
       user_id: userId,
     });
 
+    if (!newPost) {
+      return res.status(404).json({ error: "Unable to add a post" });
+    }
+
     res.status(200).json({ success: "Post added successfully." });
   } catch (error) {
     console.log(`[ERROR]: ${error.message}`);

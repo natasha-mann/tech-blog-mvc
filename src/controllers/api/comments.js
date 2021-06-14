@@ -19,6 +19,10 @@ const createComment = async (req, res) => {
       user_id: userId,
     });
 
+    if (!newComment) {
+      return res.status(404).json({ error: "Unable to add a comment" });
+    }
+
     res.status(200).json({ success: "Comment added successfully." });
   } catch (error) {
     console.log(`[ERROR]: ${error.message}`);
