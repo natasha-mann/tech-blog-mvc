@@ -14,7 +14,7 @@
 
 ## Deployed App
 
-This app is currently deployed on Heroku. Please check it out [here](https://murmuring-lowlands-41879.herokuapp.com/).
+This app is currently deployed on Heroku. Please check it out [here](https://conquering-code.herokuapp.com/).
 
 ## About the Project
 
