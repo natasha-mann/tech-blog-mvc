@@ -48,6 +48,21 @@
   font-weight: bolder;
 }
 
+.hero-div {
+  width: 100%;
+  height: 45vh;
+  margin-top: 13.5vh;
+  background-image: url("/images/hero.jpg");
+  background-size: cover;
+  background-position: bottom;
+  opacity: 0.5;
+  background-attachment: fixed;
+}
+
+.drop-top {
+  margin-top: 17vh;
+}
+
 .card-top {
   background-color: #b0d4ce !important;
 }
@@ -66,36 +81,36 @@
 
 @media screen and (min-width: 1201px) {
   .signup-form {
-    margin-top: 7% !important;
+    margin-top: 12% !important;
     width: 60% !important;
   }
   .login-form,
   .empty-dashboard,
   .empty-home {
-    margin-top: 10% !important;
+    margin-top: 15% !important;
     width: 50% !important;
   }
 }
 
 @media screen and (max-width: 1200px) {
   .signup-form {
-    margin-top: 10% !important;
+    margin-top: 17% !important;
     width: 75% !important;
   }
   .login-form {
-    margin-top: 15% !important;
+    margin-top: 20% !important;
     width: 70% !important;
   }
 }
 
 @media screen and (max-width: 780px) {
   .signup-form {
-    margin-top: 15% !important;
+    margin-top: 25% !important;
     width: 80% !important;
   }
 
   .login-form {
-    margin-top: 20% !important;
+    margin-top: 25% !important;
     width: 80% !important;
   }
 
@@ -106,9 +121,13 @@
 
 @media screen and (max-width: 480px) {
   .signup-form {
-    margin-top: 20% !important;
+    margin-top: 50% !important;
     width: 90% !important;
     padding-left: 4% !important;
     padding-right: 4% !important;
+  }
+
+  .login-form {
+    margin-top: 50% !important;
   }
 }

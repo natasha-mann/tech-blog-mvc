@@ -16,7 +16,7 @@ const PORT = process.env.PORT || 3000;
 const app = express();
 
 const sessionOptions = {
-  secret: process.env.SESSION_SECRET,
+  secret: "process.env.SESSION_SECRET",
   resave: false,
   saveUninitialized: false,
   store: new SequelizeStore({
